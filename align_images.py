@@ -37,3 +37,4 @@ if __name__ == "__main__":
             aligned_face_path = os.path.join(ALIGNED_IMAGES_DIR, face_img_name)
             os.makedirs(ALIGNED_IMAGES_DIR, exist_ok=True)
             image_align(raw_img_path, aligned_face_path, face_landmarks)
+            print('{} is aligned and saved in {}'.format(face_img_name, ALIGNED_IMAGES_DIR))
