@@ -1,3 +1,8 @@
+# humanify, convert cartoon into human
+  Updated few print statements and changed model's paths
+
+# Justinpinkey's READme
+
 ## Train Your Own StyleGAN2 Using Colab
 
 ![Teaser image](./fake_art_portrait.jpg)
