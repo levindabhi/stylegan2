@@ -31,6 +31,8 @@ if __name__ == "__main__":
 
     landmarks_detector = LandmarksDetector(landmarks_model_path)
     for img_name in [x for x in os.listdir(RAW_IMAGES_DIR)]:
+        if not img_name.split('.')[-1] in ['jpg', 'png', 'jpeg', 'PNG', 'JPG', 'JPEG']:
+            continue
         raw_img_path = os.path.join(RAW_IMAGES_DIR, img_name)
         print('Processing image: {}'.format(img_name))
         for i, face_landmarks in enumerate(landmarks_detector.get_landmarks(raw_img_path), start=1):
