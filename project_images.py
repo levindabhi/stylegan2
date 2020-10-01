@@ -111,7 +111,7 @@ def main():
     src_files = sorted([os.path.join(args.src_dir, f) for f in os.listdir(args.src_dir) if f[0] not in '._'])
     for src_file in src_files:
         #projecting only those image whose res is same as network's res
-        if src_file.split('_')[0] == str(args.res):
+        if src_file.split('.')[-2] == str(args.res):
             project_image(proj, src_file, args.dst_dir, args.tmp_dir, video=args.video)
             if args.video:
                 render_video(
