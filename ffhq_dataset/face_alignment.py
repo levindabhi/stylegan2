@@ -88,6 +88,8 @@ def image_align(src_file, dst_file, face_landmarks, output_size=1024, transform_
         # Transform.
         img = img.transform((transform_size, transform_size), PIL.Image.QUAD, (quad + 0.5).flatten(), PIL.Image.BILINEAR)
         
+        temp_file = dst_file
+        
         #1024
         if output_size < transform_size:
             img = img.resize((output_size, output_size), PIL.Image.ANTIALIAS)
@@ -101,6 +103,7 @@ def image_align(src_file, dst_file, face_landmarks, output_size=1024, transform_
             img = img.resize((512, 512), PIL.Image.ANTIALIAS)
 
         # Save aligned image.
+        dst_file = temp_file
         dst_file = dst_file[:-4] + '.' + str(512) + dst_file[-4:]
         img.save(dst_file, 'PNG')
         
@@ -109,5 +112,8 @@ def image_align(src_file, dst_file, face_landmarks, output_size=1024, transform_
             img = img.resize((256, 256), PIL.Image.ANTIALIAS)
 
         # Save aligned image.
+        dst_file = temp_file
         dst_file = dst_file[:-4] + '.' + str(256) + dst_file[-4:]
         img.save(dst_file, 'PNG')
+        
+        dst_file = temp_file
