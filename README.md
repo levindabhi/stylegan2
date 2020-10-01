@@ -1,5 +1,4 @@
-# humanify, convert cartoon into human
-  Updated few print statements and changed model's paths
+Updated few print statements and conditions for validating inputs
 
 # Justinpinkey's READme
 
