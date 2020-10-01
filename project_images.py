@@ -110,13 +110,15 @@ def main():
 
     src_files = sorted([os.path.join(args.src_dir, f) for f in os.listdir(args.src_dir) if f[0] not in '._'])
     for src_file in src_files:
-        project_image(proj, src_file, args.dst_dir, args.tmp_dir, video=args.video)
-        if args.video:
-            render_video(
-                src_file, args.dst_dir, args.tmp_dir, args.num_steps, args.video_mode,
-                args.video_size, args.video_fps, args.video_codec, args.video_bitrate
-            )
-        shutil.rmtree(args.tmp_dir)
+        #projecting only those image whose res is same as network's res
+        if src_file.split('_')[0] == str(args.res):
+            project_image(proj, src_file, args.dst_dir, args.tmp_dir, video=args.video)
+            if args.video:
+                render_video(
+                    src_file, args.dst_dir, args.tmp_dir, args.num_steps, args.video_mode,
+                    args.video_size, args.video_fps, args.video_codec, args.video_bitrate
+                )
+            shutil.rmtree(args.tmp_dir)
 
 
 if __name__ == '__main__':
